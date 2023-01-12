@@ -1,6 +1,7 @@
 import { Modal } from 'antd';
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
 import { answer } from '../store/questionsSlice';
 
 function Questions() {
@@ -26,10 +27,16 @@ function Questions() {
 
     const submitQuestions = (event, item) => {
         event.preventDefault();
-        console.log(item)
-        let sendingAnswer = { id: item.id, question: item.item, answer: value }
-        dispatch(answer(sendingAnswer));
-        setValue(" ");
+        if (value.trim().length === 0) {
+            toast.warn("Please fill in the input", { autoClose: 2000 })
+        } else {
+            let sendingAnswer = { id: item.id, question: item.item, answer: value }
+            dispatch(answer(sendingAnswer));
+            toast.success("Answer is added", { autoClose: 2000 })
+            setValue(" ");
+            setIsModalOpen(false);
+        }
+
     }
 
 
@@ -41,13 +48,13 @@ function Questions() {
                     state.map(item => (
                         <div className='write-answer'>
                             <span>{item.item}</span>
-                            <button onClick={() => showModal(item)}>Answer</button>
+                            <button className='buttons' onClick={() => showModal(item)}>Answer</button>
                             <Modal title="Basic Modal" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
                                 <form onSubmit={(event) => submitQuestions(event, updatedItem)} >
                                     <div className='modal-list'>
-                                        <span className='modal-question'>Question:{updatedItem.item}</span>
-                                        <input required value={value} onChange={(e) => setValue(e.target.value)} placeholder='Answer Question' />
-                                        <button>Answer</button>
+                                        <span className='modal-question'> <span style={{fontWeight:"900",color:"black"}}>Question:</span> {updatedItem.item}</span>
+                                        <input className='inputs' required value={value} onChange={(e) => setValue(e.target.value)} placeholder='Answer Question' />
+                                        <button className='buttons'>Answer</button>
                                     </div>
                                 </form>
                             </Modal>

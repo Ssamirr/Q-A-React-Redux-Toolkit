@@ -13,8 +13,8 @@ function Answers() {
                     React.Children.toArray(
                         stateQuestions.map(item => (
                             <div className='q-a'>
-                                <h1>{item.item}</h1>
-                                <ul>
+                                <h1 className='header-q-a'>{item.item}</h1>
+                                <ul className='answers-list'>
                                     {
                                         React.Children.toArray(
                                             stateAnswers.map(answ=>(

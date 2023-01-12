@@ -49,8 +49,8 @@ body {
     box-shadow: 0 0 12px #000;
 }
 
-input,
-button {
+.inputs,
+.buttons {
     border-radius: 5px;
     border-width: 1px;
     font-size: 1.2rem;
@@ -60,66 +60,68 @@ button {
     box-shadow: 0 0 12px #000;
 }
 
-.questions{
+.questions {
     display: flex;
     flex-direction: column;
 }
 
-.questions input{
+.questions input {
     margin-bottom: 10px;
 }
 
 /* .questions-page{
 } */
 
-.write-answer{
+.write-answer {
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 1.2rem;
-    padding: 0px 50px;
-    border-bottom: 1px solid;
-    padding: 5px 0px;
+    /* border-bottom: 1px solid; */
+    padding: 10px 30px;
+    box-shadow: 0 0 12px #000;
 }
 
-.modal-list{
+.modal-list {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.ant-modal-title,.ant-modal-footer{
+.ant-modal-title,
+.ant-modal-footer {
     display: none;
 }
 
-.modal-list input,.modal-list button{
-        border-radius: 5px;
-        border-width: 1px;
-        font-size: 1.2rem;
-        height: 50px;
-        padding: 10px;
-        width: 300px;
-        box-shadow: 0 0 12px #000;
+.modal-list input,
+.modal-list button {
+    border-radius: 5px;
+    border-width: 1px;
+    font-size: 1.2rem;
+    height: 50px;
+    padding: 10px;
+    width: 300px;
+    box-shadow: 0 0 12px #000;
 }
 
-.modal-list input{
+.modal-list input {
     margin-bottom: 10px;
 }
 
-.ant-modal-content{
+.ant-modal-content {
     background: #345e41 !important;
     box-shadow: 0 0 12px #000;
 }
 
-.modal-question{
+.modal-question {
     color: white;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     text-align: center;
     margin-bottom: 5px;
 }
 
-.not-list{
+.not-list {
     height: 80vh;
     display: flex;
     align-items: center;
@@ -128,10 +130,44 @@ button {
     text-shadow: 2px 2px 50px rgb(0, 255, 85);
 }
 
-.question-answer-inside h1{
+.question-answer-inside h1 {
     font-size: 2rem;
     text-align: center;
     text-shadow: 2px 2px 50px rgb(0, 255, 85);
     margin-bottom: 20px;
     font-weight: 700;
+}
+
+.buttons {
+    background: transparent;
+    color: white;
+    transition: 0.3s ease all;
+    cursor: pointer;
+}
+
+.buttons:hover {
+    opacity: 0.7;
+}
+
+.header-q-a {
+    font-size: 1.7rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.q-a {
+    box-shadow: 0 0 12px #000;
+    padding: 20px;
+}
+
+.answers-list {
+    list-style-type:auto;
+}
+
+.answers-list li{
+    margin-bottom: 5px;
+}
+
+.answers-list li:last-of-type{
+    margin-bottom: 0px;
 }
