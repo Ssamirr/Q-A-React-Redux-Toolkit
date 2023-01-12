@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 function Answers() {
     const stateAnswers = useSelector(state => state.questions.answers)
     const stateQuestions = useSelector(state => state.questions.questions)
-    // console.log(state)
+    console.log(stateAnswers)
     return (
         <>
             <div className='answers-page'>
@@ -14,16 +14,20 @@ function Answers() {
                         stateQuestions.map(item => (
                             <div className='q-a'>
                                 <h1 className='header-q-a'>{item.item}</h1>
-                                <ul className='answers-list'>
-                                    {
-                                        React.Children.toArray(
-                                            stateAnswers.map(answ=>(
-                                                item.id===answ.id &&
-                                                <li>{answ.answer}</li>
-                                            ))
-                                        )
-                                    }
-                                </ul>
+                                {stateAnswers.filter(q => q.id === item.id).length === 0 ?
+                                    <span className='empty-answer'>There is no answer yet</span>
+                                    :
+                                    <ul className='answers-list'>
+                                        {
+                                            React.Children.toArray(
+                                                stateAnswers.map(answ => (
+                                                    item.id === answ.id &&
+                                                    <li>{answ.answer}</li>
+                                                ))
+                                            )
+                                        }
+                                    </ul>
+                                }
                             </div>
                         ))
                     )

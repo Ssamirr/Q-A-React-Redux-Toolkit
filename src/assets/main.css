@@ -153,6 +153,7 @@ body {
     font-size: 1.7rem;
     font-weight: 700;
     text-align: center;
+    margin-bottom: 30px;
 }
 
 .q-a {
@@ -165,9 +166,14 @@ body {
 }
 
 .answers-list li{
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 .answers-list li:last-of-type{
     margin-bottom: 0px;
+}
+
+.empty-answer{
+    text-align: center;
+    display: block
 }

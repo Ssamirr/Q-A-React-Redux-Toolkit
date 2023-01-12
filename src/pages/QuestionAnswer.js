@@ -2,11 +2,11 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 import { add } from '../store/questionsSlice';
+import uuid from 'react-uuid';
 
 function QuestionAnswer() {
 
   const [value, setValue] = useState("");
-  const [id, setId] = useState(1)
 
 
   let dispatch = useDispatch();
@@ -16,10 +16,9 @@ function QuestionAnswer() {
     if (value.trim().length === 0) {
       toast.warn("Please fill in input", { autoClose: 2000 })
     } else {
-      let sendingQuestion = { id: id, item: value }
+      let sendingQuestion = { id: uuid(), item: value }
       dispatch(add(sendingQuestion));
       setValue(" ");
-      setId(prev => prev + 1);
       toast.success("Question is added", { autoClose: 2000 })
     }
 
