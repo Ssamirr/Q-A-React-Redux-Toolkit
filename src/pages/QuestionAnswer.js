@@ -16,7 +16,7 @@ function QuestionAnswer() {
     if (value.trim().length === 0) {
       toast.warn("Please fill in input", { autoClose: 2000 })
     } else {
-      let sendingQuestion = { id: uuid(), item: value }
+      let sendingQuestion = { id: uuid(), item: value, rate: 1 }
       dispatch(add(sendingQuestion));
       setValue(" ");
       toast.success("Question is added", { autoClose: 2000 })

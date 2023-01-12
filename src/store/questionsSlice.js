@@ -10,6 +10,10 @@ const questionsSlice = createSlice({
         add: (state, action) => {
             state.questions.push(action.payload)
         },
+        updateRate: (state, action) => {
+            let updateItemIndex = state.questions.findIndex(q => q.id === action.payload.id)
+            state.questions[updateItemIndex] = action.payload;
+        },
         answer: (state, action) => {
             state.answers.push(action.payload)
         }
@@ -18,4 +22,4 @@ const questionsSlice = createSlice({
 
 export default questionsSlice.reducer
 
-export const { add, answer } = questionsSlice.actions
+export const { add, answer, updateRate } = questionsSlice.actions

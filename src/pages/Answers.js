@@ -13,7 +13,7 @@ function Answers() {
                     React.Children.toArray(
                         stateQuestions.map(item => (
                             <div className='q-a'>
-                                <h1 className='header-q-a'>{item.item}</h1>
+                                <h1 className='header-q-a'>{item.item}({item.rate})</h1>
                                 {stateAnswers.filter(q => q.id === item.id).length === 0 ?
                                     <span className='empty-answer'>There is no answer yet</span>
                                     :
