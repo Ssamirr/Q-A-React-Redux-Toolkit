@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { add } from '../store/questionsSlice';
-import { useId } from "react-id-generator";
 
 function QuestionAnswer() {
 
